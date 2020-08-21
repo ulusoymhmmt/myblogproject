@@ -1,0 +1,21 @@
+@model List<BloggListModel>
+
+<br><br>
+<a asp-controller="Blogg" asp-action="Create" class="btn btn-warning btn-md">Yeni Blog Yaz!</a>
+<br><br>
+<table class="table table-bordered table-hover">
+    <tbody>
+        @foreach (var blog in Model)
+        {
+         <tr>
+            <td>@blog.Title</td>
+            <td>
+                <a href="">Duzenle</a>
+                <a href="">Sil</a>
+
+            </td>
+        </tr>
+        }
+    @* burada kaldik *@
+    </tbody>
+</table>

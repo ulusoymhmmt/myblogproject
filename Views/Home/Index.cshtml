@@ -1,0 +1,25 @@
+ @model List<BloggListModel>
+
+
+   @if(ViewBag.ActiveCategory!=null){
+    @await Component.InvokeAsync("GetCategoryName", new {@categoryId=(int)ViewBag.ActiveCategory})
+   }
+
+    @foreach (var blog in Model)
+    {
+         <div class="card mb-4">
+         <getblogimage Id="@blog.Id"></getblogimage> 
+         @* tag helper ile image cekme olayi aslinda burada img var sadece *@ 
+          <div class="card-body">
+            <h2 class="card-title">@blog.Title</h2>  
+            <p class="card-text">@blog.ShortDescription</p>
+            <a asp-action="BlogDetail" asp-route-id="@blog.Id" class="btn btn-primary">Read More &rarr;</a>
+          </div>
+          <div class="card-footer text-muted">
+            Posted on @blog.PostedTime.ToLongDateString();
+           
+          </div>
+     </div>
+    }
+
+    

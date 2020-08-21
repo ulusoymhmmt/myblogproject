@@ -1,0 +1,29 @@
+@model UlusoyBlogFront.Models.BloggAddModel
+
+
+<form asp-controller="Blogg" method="POST" asp-action="Create"  class="p-3" enctype="multipart/form-data">
+<!-- enctype i belirtmem gerekiyor multiparf form/data gelecegini ki yoksa tek tek verileri girmistik o nlardan herhangi birilerini null olarak isler sadece 1 tane alir-->
+
+<div class="form-group">
+  <label asp-for="Title"></label>   <!--bloggaddmodel de bahsedilen yorum label a isim girmiyorum!-->
+  <input asp-for="Title" class="form-control">
+</div>
+
+<div class="form-group">
+  <label asp-for="ShortDescription"></label>
+  <textarea asp-for="ShortDescription" class="form-control"> </textarea>
+</div>
+
+<div class="form-group">
+  <label asp-for="Description"></label>  <!--buyuk yazi girecegimiz zaman input yerine textarea-->
+  <textarea asp-for="Description" class="form-control" placeholder="Blog Icerigini Buraya Giriniz!"></textarea>
+</div>
+
+<div class="form-group">
+  <label asp-for="Image"></label>
+  <input class="form-control-file" type="file"  asp-for="Image" multiple>
+</div>
+
+  <input type="submit" class="btn btn-block btn-primary"></button>
+
+</form>
